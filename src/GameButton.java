@@ -9,14 +9,19 @@ public class GameButton extends JButton {
         buttonIndex = gameButtonIndex;
         board = currentGameBoard;
 
-        int rowNum = buttonIndex / GameBoard.dimension; // номер ряда
-        int cellNum = buttonIndex % GameBoard.dimension; // номер ячейки в столбце
+        int row  = buttonIndex / GameBoard.dimension; // номер ряда
+        int cell = buttonIndex % GameBoard.dimension; // номер ячейки в столбце
 
         setSize(GameBoard.cellSize - 5, GameBoard.cellSize - 5);
-        addActionListener(new GameActionListener(rowNum, cellNum, this));
+        addActionListener(new GameActionListener(this));
     }
 
     public GameBoard getBoard() {
         return board;
     }
+
+    public int getButtonIndex() {
+        return buttonIndex;
+    }
 }
+
